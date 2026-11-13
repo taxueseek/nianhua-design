@@ -1,0 +1,580 @@
+{
+  "schema_version": "5.1",
+  "background": "中国 1950s—90s 美术出版物封面（年画缩样集大成谱系）与 1980 年代先锋书籍装帧（文艺丛书、美学译丛与画册路线）同出于平面现代主义（Graphic Modernism）与本土版画工艺母体：既涵括传统民间年画的节庆装饰、民间信仰图腾与手工套色工艺，又发展出受包豪斯与构成主义启发的大留白、硬边几何切割、少色专色套印与建筑化手工美术字。",
+  "principle": "MECE 正交矩阵（含跨轴互斥与断代约束）：细分风格（年画缩样 / 80s 先锋译丛）× 历史功能 × 载体品类 × 历史断代 × 具体构图与绑定字区 × 汉字排布网格 × 字图咬合手法 × 三种同代风味变体 × 视觉隐喻 × 图形媒介与工艺饰件 × 专色油墨（含 HEX 与占比）× 手工字形",
+  "styles": {
+    "nianhua-suoyang": {
+      "name": "年画缩样（传统至现代集大成）",
+      "description": "1950s—90s 美术出版社年画缩样、年历、画片与图案集封面体系。集传统民间工艺与超前现代构成之大成，兼容工笔开光、剪纸线刻、套色木刻、高对比色块切割、摄影拼贴与非标手绘美术字。",
+      "allowed_formats": ["cover", "calendar", "poster", "pattern-book"],
+      "allowed_decades": ["1980s", "1970s", "1950s-60s", "1990s"],
+      "flavor_adaptation": {
+        "ikko-geometric": "以极简正圆、半圆、锐角三角与硬边直线提炼传统年画或当代物象轮廓，纯平专色块面高对比撞击，保留民间剪纸般的利落剪影感，零渐变",
+        "marber-grid": "用极细干脆黑线或白线显性分隔顶部标题带、独立年份编号栏与下方矩形画窗，传承老缩样票券框线秩序并呈现严谨成套门面",
+        "riso-overprint": "严格限定两至三枚半透明专色油墨叠加印制，色块交叠边缘透出油墨叠色与零点五毫米轻微机械套印错位，呼应老木刻与胶印套色韵味"
+      }
+    },
+    "pioneer-book-series": {
+      "name": "80s 先锋译丛（现代主义装帧）",
+      "description": "1980 年代文艺丛书、美学译丛与思想画册先锋书籍装帧体系。摆脱写实叙事插画，吸收包豪斯与俄国构成主义精神，以大留白、硬边点线面切割、低饱和书卷套印与建筑梁柱式手工美术字建立理性秩序。",
+      "allowed_formats": ["book-series", "cover", "poster"],
+      "allowed_decades": ["1980s", "1990s"],
+      "flavor_adaptation": {
+        "ikko-geometric": "以包豪斯与东亚平面构成手法重构极简正圆、半圆与锐角几何切面，纯平专色块面高对比硬边撞击，零渐变与零明暗过渡",
+        "marber-grid": "以一像素极细黑线或白线把顶部丛书标题带、独立期号年份栏与下方抽象矩形主画窗焊死在理性网格中，呈现严谨的译丛成套门面",
+        "riso-overprint": "限定两至三枚低饱和或书卷专色半透明叠印，交界处自然叠出第三色，配哑光粗纤维特种纸肌理与极细微套印错位"
+      }
+    }
+  },
+  "historical_functions": {
+    "festive-ornament": {
+      "name": "节庆装饰",
+      "visual_cue": "画面充盈喜庆明快的节日仪式感与饱满节奏"
+    },
+    "folk-belief": {
+      "name": "民间信仰表达",
+      "visual_cue": "采用庄重稳定的对称呼应与仪式感视觉秩序"
+    },
+    "mass-visual": {
+      "name": "大众视觉传播",
+      "visual_cue": "靠醒目结构对比与强烈大字号层级确立远距一眼识别的视觉焦点"
+    }
+  },
+  "formats": {
+    "cover": {
+      "name": "美术刊物 / 年画缩样封面",
+      "prompt_label": "美术出版物年画缩样精品封面设计",
+      "default_aspects": ["3:4", "2:3"]
+    },
+    "calendar": {
+      "name": "复古年历 / 月份挂历",
+      "prompt_label": "美术出版物挂历与年历主画面设计",
+      "default_aspects": ["2:3", "3:4"]
+    },
+    "poster": {
+      "name": "时代宣传画",
+      "prompt_label": "平面现代主义宣传画海报设计",
+      "default_aspects": ["3:4", "4:3"]
+    },
+    "pattern-book": {
+      "name": "艺术图案集 / 题图集",
+      "prompt_label": "美术出版物装帧图案集封面设计",
+      "default_aspects": ["1:1", "4:3"]
+    },
+    "book-series": {
+      "name": "先锋书籍装帧 / 美学译丛与文艺画册",
+      "prompt_label": "先锋书籍装帧与美学译丛封面设计",
+      "default_aspects": ["3:4", "2:3"]
+    }
+  },
+  "decades": {
+    "1950s-60s": {
+      "label": "上世纪 50 至 60 年代典雅朴素美术出版风格",
+      "weight": 1.5,
+      "paper_rule": "全新哑光素面道林纸或细腻棉纸质感，早期铅印与平版套色油墨沉稳吃透纸面",
+      "allowed_palettes": ["paper-ink", "warm-ink", "cool-ink"],
+      "allowed_mediums": ["monoline-print", "gongbi-watercolor", "gouache-poster"],
+      "allowed_typos": ["serif-handscript", "heavy-block-cut", "brush-vs-geo"],
+      "forbidden_accents": ["pinyin-band", "collage-band"]
+    },
+    "1970s": {
+      "label": "上世纪 70 年代硬朗高饱和专色出版风格",
+      "weight": 2.0,
+      "paper_rule": "全新哑光胶版美术纸质感，高饱和专色油墨厚实硬朗平涂",
+      "allowed_palettes": ["warm-ink", "cool-ink", "multi-spot"],
+      "allowed_mediums": ["gouache-poster", "monoline-print", "geometry-symbol"],
+      "allowed_typos": ["heavy-block-cut", "serif-handscript", "brush-vs-geo"],
+      "forbidden_accents": ["foil-gold", "damask-paper"]
+    },
+    "1980s": {
+      "label": "上世纪 80 年代黄金鼎盛期平面出版风格",
+      "weight": 5.0,
+      "paper_rule": "全新哑光特种美术纸或精致布纹铜版纸，专色油墨饱和匀净",
+      "allowed_palettes": ["warm-ink", "cool-ink", "paper-ink", "multi-spot", "literary-muted"],
+      "allowed_mediums": ["monoline-print", "geometry-symbol", "gouache-poster", "gongbi-watercolor", "retro-film"],
+      "allowed_typos": ["heavy-block-cut", "architectural-book", "serif-handscript", "brush-vs-geo"],
+      "forbidden_accents": []
+    },
+    "1990s": {
+      "label": "上世纪 90 年代初摩登平面构成出版风格",
+      "weight": 1.5,
+      "paper_rule": "全新光洁铜版纸彩色胶印质感，高反差专色块面边缘利落",
+      "allowed_palettes": ["cool-ink", "warm-ink", "multi-spot", "literary-muted"],
+      "allowed_mediums": ["geometry-symbol", "retro-film", "monoline-print", "gongbi-watercolor"],
+      "allowed_typos": ["architectural-book", "heavy-block-cut", "brush-vs-geo"],
+      "forbidden_accents": ["traditional-border"]
+    }
+  },
+  "skeletons": {
+    "block-cut": {
+      "name": "色块切割型",
+      "layouts": [
+        {
+          "id": "quad-reversal",
+          "desc": "采用四象限田字格双色反转切割版面，相邻格明暗反白对撞",
+          "title_zone": "左上反转纯色方格内",
+          "year_zone": "右下对角反转纯色方格内，数字占满该格大部面积",
+          "sub_zone": "左下角或底缘细长反白栏内",
+          "preferred_grids": ["modular-grid", "bilateral-mirror", "tight-brick-justify"],
+          "compatible_flavors": ["none", "ikko-geometric", "riso-overprint"]
+        },
+        {
+          "id": "three-seven-split",
+          "desc": "采用左三右七不对称竖向分栏，左侧高纯度窄色带承托主体图形，右侧大留白排置文字",
+          "title_zone": "右侧留白中下部",
+          "year_zone": "右侧留白顶部大片净空区",
+          "sub_zone": "右侧最底缘克制单行",
+          "preferred_grids": ["asymmetric-tension", "vertical-cjk-cross", "axial-axis"],
+          "compatible_flavors": ["none", "ikko-geometric", "riso-overprint"]
+        },
+        {
+          "id": "diagonal-brush-collage",
+          "desc": "采用两块带毛刷飞白边缘的几何色块对角错位拼贴，主体图形跨界串联其间",
+          "title_zone": "左上色块内部",
+          "year_zone": "右下对角留白或下方色块旁侧",
+          "sub_zone": "底边细行空白处",
+          "preferred_grids": ["contour-stagger", "asymmetric-tension"],
+          "compatible_flavors": ["none", "riso-overprint", "ikko-geometric"]
+        },
+        {
+          "id": "diagonal-ribbon",
+          "desc": "采用一道斜向动势实心色带贯穿画面，切割出上下对峙的两个干净色区",
+          "title_zone": "沿斜向色带中段内部压印",
+          "year_zone": "上方或右下独立大色区内",
+          "sub_zone": "斜带下方边角细行",
+          "preferred_grids": ["radial-expansion", "contour-stagger", "axial-axis"],
+          "compatible_flavors": ["none", "ikko-geometric", "riso-overprint"]
+        },
+        {
+          "id": "bauhaus-circle-band",
+          "desc": "在大面积单一纯色底上，以一枚硬边正圆、锐角三角与实心宽条带强行切割版面形成包豪斯构成张力",
+          "title_zone": "紧贴实心宽条带边缘的净空区",
+          "year_zone": "正圆或三角对角空白区",
+          "sub_zone": "底端细行文字带",
+          "preferred_grids": ["asymmetric-tension", "axial-axis", "tight-brick-justify"],
+          "compatible_flavors": ["none", "ikko-geometric", "riso-overprint"]
+        }
+      ]
+    },
+    "window-frame": {
+      "name": "开窗画框型",
+      "layouts": [
+        {
+          "id": "ticket-double-frame",
+          "desc": "四周留出宽裕素色边距，中央以极细双线矩形开窗嵌主体画面，底部紧接标题与编号区",
+          "title_zone": "矩形画框下方素底条带内",
+          "year_zone": "画框上方或标题同侧独立编号格内",
+          "sub_zone": "双线框内下沿极细单行",
+          "preferred_grids": ["modular-grid", "axial-axis", "bilateral-mirror"],
+          "compatible_flavors": ["none", "marber-grid", "riso-overprint"]
+        },
+        {
+          "id": "rounded-arch-frame",
+          "desc": "上方设圆角方框开光嵌核心主体，下方为纯净实色底面承接大字与年份",
+          "title_zone": "下方实色底面居中或偏左区",
+          "year_zone": "下方标题旁侧或顶部横眉处",
+          "sub_zone": "最底缘居中小字行",
+          "preferred_grids": ["bilateral-mirror", "tight-brick-justify", "axial-axis"],
+          "compatible_flavors": ["none", "marber-grid"]
+        },
+        {
+          "id": "right-window-left-year",
+          "desc": "右侧七成设为竖幅细框开窗嵌主体画面，左侧三成留出纯净竖栏",
+          "title_zone": "开窗底部外缘横带内",
+          "year_zone": "左侧三成纯净竖栏内纵横醒目排置",
+          "sub_zone": "左侧竖栏最底端",
+          "preferred_grids": ["vertical-cjk-cross", "asymmetric-tension", "axial-axis"],
+          "compatible_flavors": ["none", "marber-grid", "ikko-geometric"]
+        },
+        {
+          "id": "archive-grid-cells",
+          "desc": "以规整二乘二或三乘三网格框格排列关联图形并突出其中一格，下方留白排字",
+          "title_zone": "网格阵列下方横贯白区",
+          "year_zone": "网格右上角或阵列上方顶栏",
+          "sub_zone": "底部最下沿细行",
+          "preferred_grids": ["modular-grid", "tight-brick-justify"],
+          "compatible_flavors": ["none", "marber-grid", "riso-overprint"]
+        }
+      ]
+    },
+    "grid-minimal": {
+      "name": "极简排印型",
+      "layouts": [
+        {
+          "id": "hairline-minimal",
+          "desc": "采用极简偏心排印，留出约七成纯净素底呼吸空间，仅以一条极细水平黑线分隔主视觉与文字区",
+          "title_zone": "水平细线上方左对齐净空区",
+          "year_zone": "素底大留白视觉重心区",
+          "sub_zone": "对角角落极简短行",
+          "preferred_grids": ["asymmetric-tension", "axial-axis", "vertical-cjk-cross"],
+          "compatible_flavors": ["none", "ikko-geometric", "marber-grid", "riso-overprint"]
+        },
+        {
+          "id": "left-spine-top-band",
+          "desc": "最左设一道垂直窄栏建立纵向轴线，上方横贯一条单色窄带，右下保留大片素底",
+          "title_zone": "上方横贯单色窄带内",
+          "year_zone": "右下大片纯净素底内",
+          "sub_zone": "最左侧垂直窄栏底端",
+          "preferred_grids": ["axial-axis", "vertical-cjk-cross", "modular-grid"],
+          "compatible_flavors": ["none", "marber-grid", "ikko-geometric", "riso-overprint"]
+        },
+        {
+          "id": "single-band-cut",
+          "desc": "在大面积单一留白底面上只置一条粗壮水平或斜向实心色带切割画面，构图克制而冷峻",
+          "title_zone": "实心色带内部反白或紧邻色带上沿",
+          "year_zone": "色带另一侧大片纯白留白区",
+          "sub_zone": "右下角单行细字",
+          "preferred_grids": ["asymmetric-tension", "tight-brick-justify", "axial-axis"],
+          "compatible_flavors": ["none", "ikko-geometric", "riso-overprint"]
+        },
+        {
+          "id": "emblem-center",
+          "desc": "单色满底中央只置一枚凝练的徽记或象征物，上下两端留出整洁素底排印文字",
+          "title_zone": "中央象征物上方正中或偏左净空区",
+          "year_zone": "中央象征物下方大幅跨宽压底",
+          "sub_zone": "最底端居中极细单行",
+          "preferred_grids": ["bilateral-mirror", "axial-axis", "vertical-cjk-cross"],
+          "compatible_flavors": ["none", "ikko-geometric", "riso-overprint"]
+        }
+      ]
+    },
+    "bleed-poster": {
+      "name": "满幅压印型",
+      "layouts": [
+        {
+          "id": "top-bleed-bottom-banner",
+          "desc": "主体图形以饱满姿态占据上七成满幅版面，底部拉通一道实心纯色横幅承托文字",
+          "title_zone": "底部实心横幅左半或中央",
+          "year_zone": "底部横幅右半或主图上方净空角",
+          "sub_zone": "横幅底角单行细字",
+          "preferred_grids": ["tight-brick-justify", "axial-axis", "bilateral-mirror"],
+          "compatible_flavors": ["none", "ikko-geometric", "riso-overprint"]
+        },
+        {
+          "id": "low-angle-radial",
+          "desc": "低视角仰视与放射状动态构图铺满画面，顶部与底部留出清晰色域落字",
+          "title_zone": "顶部开阔净空处横排",
+          "year_zone": "底部前景实色块内巨型跨幅",
+          "sub_zone": "右下底边单行",
+          "preferred_grids": ["radial-expansion", "tight-brick-justify"],
+          "compatible_flavors": ["none", "ikko-geometric", "riso-overprint"]
+        },
+        {
+          "id": "left-two-thirds-bleed",
+          "desc": "主体图形铺满左侧三分之二版面，右侧保留干净留白或单色底与文字咬合",
+          "title_zone": "右侧干净净空竖向或高位区",
+          "year_zone": "右侧中下部或跨过主图下缘",
+          "sub_zone": "右侧底角细行",
+          "preferred_grids": ["vertical-cjk-cross", "asymmetric-tension", "contour-stagger"],
+          "compatible_flavors": ["none", "ikko-geometric", "riso-overprint"]
+        }
+      ]
+    }
+  },
+  "cjk_grids": {
+    "axial-axis": {
+      "name": "轴线统领",
+      "rule": "书名、年份与主体边缘严格沿着同一条垂直中轴或偏心基线对齐",
+      "text_direction": "horizontal"
+    },
+    "modular-grid": {
+      "name": "模块分栏",
+      "rule": "文字与图形各自安放在严丝合缝的矩形分栏格内，彼此界线分明",
+      "text_direction": "horizontal"
+    },
+    "asymmetric-tension": {
+      "name": "非对称三七张力",
+      "rule": "文字与主体聚拢在一侧三成区域，刻意释出另一侧大片纯净呼吸留白",
+      "text_direction": "horizontal"
+    },
+    "radial-expansion": {
+      "name": "放射扩张",
+      "rule": "文字区块顺应主体向外放射的斜向动势错落切出节奏",
+      "text_direction": "horizontal"
+    },
+    "bilateral-mirror": {
+      "name": "双边镜像对峙",
+      "rule": "书名与年份沿中轴或上下基线形成庄重平衡的对称制衡",
+      "text_direction": "horizontal"
+    },
+    "vertical-cjk-cross": {
+      "name": "东亚竖排咬合",
+      "rule": "汉字主标题紧凑竖排成垂直碑柱状，与横排巨型年份形成九十度直角穿插",
+      "text_direction": "vertical"
+    },
+    "tight-brick-justify": {
+      "name": "砖块齐行体量",
+      "rule": "汉字主标题字距极紧、两端对齐铺满矩形字槽，如建筑砌砖般形成实心体量",
+      "text_direction": "horizontal"
+    },
+    "contour-stagger": {
+      "name": "依轮廓绕排",
+      "rule": "汉字与年份沿着主体外轮廓或斜向切线错落退让排布，字与图保持干净安全间距",
+      "text_direction": "diagonal"
+    }
+  },
+  "tactics": {
+    "standard": {
+      "name": "主从分区",
+      "rule": ""
+    },
+    "type-mask": {
+      "name": "字中有画",
+      "rule": "大书名极粗笔画轮廓内部巧嵌白色同心几何线纹或局部专色纹理，与干净底面清晰区隔"
+    },
+    "type-overlap": {
+      "name": "字压色块层",
+      "rule": "巨型年份或书名局部轻轻压过主视觉下缘或背景色带边缘，形成前后平面叠层而不遮挡主体焦点"
+    },
+    "stepped-stagger": {
+      "name": "阶梯错位",
+      "rule": "主标题拆分为两行斜向高低错落排布，腾出干净的对角负空间承托主体"
+    },
+    "negative-space": {
+      "name": "负空间双关",
+      "rule": "两个相邻几何色块或剪影之间的留白缝隙恰好勾勒出第二重隐喻轮廓"
+    },
+    "repeat-band": {
+      "name": "压缩重复字带",
+      "rule": "核心书名在背景浅色窄带中低对比重复排印成平面肌理，衬托前景主体"
+    }
+  },
+  "flavors": {
+    "none": {
+      "name": "原味基准",
+      "rule": ""
+    },
+    "ikko-geometric": {
+      "name": "几何东方构成风味",
+      "rule": ""
+    },
+    "marber-grid": {
+      "name": "三分线框丛书风味",
+      "rule": ""
+    },
+    "riso-overprint": {
+      "name": "双专色孔版叠印风味",
+      "rule": ""
+    }
+  },
+  "metaphors": {
+    "single-object": {
+      "name": "单一象征物",
+      "visual_hint": "画面只聚焦一件凝练主体配大片留白，以少胜多"
+    },
+    "dual-contrast": {
+      "name": "镜像对比",
+      "visual_hint": "以地平线或中线形成上下或左右两界平涂对峙，呈现概念反差"
+    },
+    "nested-frame": {
+      "name": "画中画揭示",
+      "visual_hint": "大纯色底面中嵌出一枚锐利几何小窗，窗内露出第二层意象"
+    },
+    "grid-archive": {
+      "name": "图鉴矩阵",
+      "visual_hint": "以规整方格展示关联符号阵列，仅以亮色高亮突出其中一格"
+    }
+  },
+  "mediums": {
+    "monoline-print": {
+      "name": "单色版画与剪纸线刻",
+      "prompt_rule": "以粗犷有力的木刻单线、民间剪纸锯齿月牙刀口与高对比平涂剪影表现，形体锐利概括，无写实阴影",
+      "default_contemporary": "极简粗黑单线版画刻画的细口手冲咖啡壶与升腾热气轮廓",
+      "default_vintage": "粗黑木刻单线与剪纸纹样刻画的昂首大鲤鱼配双宫灯剪影",
+      "default_book_series": "粗黑版画单线勾勒的几何拱门与螺旋阶梯意象"
+    },
+    "geometry-symbol": {
+      "name": "抽象几何构成",
+      "prompt_rule": "由硬边正圆、锐角三角、同心圆弧、点阵与毛刷飞白构成的平面抽象符号，边缘干净利落",
+      "default_contemporary": "交错同心圆弧、折线与阶梯色块构成的算力秩序抽象符号",
+      "default_vintage": "菱形网格、毛刷飞白块面与几何化丰收徽章",
+      "default_book_series": "一枚正圆与斜切锐角三角咬合而成的极简思想建筑符号"
+    },
+    "gouache-poster": {
+      "name": "宣传画平涂水粉",
+      "prompt_rule": "采用不透明水粉平涂技法，造型硬朗有力、色块分明、色面不掺渐变",
+      "default_contemporary": "平涂水粉硬边色块刻画的仰角跨海大桥与疾驰列车轮廓",
+      "default_vintage": "水粉平涂技法绘制的建设高塔与金黄丰收麦浪",
+      "default_book_series": "厚实平涂水粉构成的山峰棱线与抽象日影"
+    },
+    "gongbi-watercolor": {
+      "name": "工笔开光与擦笔水彩",
+      "prompt_rule": "以清雅清晰的工笔线条或画报式平面擦笔水彩设色，色彩通透克制而不做作立体",
+      "default_contemporary": "平面水彩笔触绘制的深夜亮灯巴士与静谧雨夜站台",
+      "default_vintage": "工笔重彩设色的青绿山石、牡丹花鸟或抱鲤福娃开光图",
+      "default_book_series": "极克制淡彩水墨与细线勾勒的古典器物剪影"
+    },
+    "retro-film": {
+      "name": "暖调棚拍胶片拼贴",
+      "prompt_rule": "呈八十年代末暖调胶片棚拍彩色拼贴质感，柔和平面布光，禁止现代数码锐化与影视景深",
+      "default_contemporary": "穿简约风衣站在玻璃幕墙前的青年暖调胶片人像",
+      "default_vintage": "竹篮萌犬与鲜花拼贴的八十年代末暖调棚拍彩照",
+      "default_book_series": "微粒感黑白胶片静物摄影局部拼贴"
+    }
+  },
+  "palettes": {
+    "warm-ink": {
+      "name": "暖红专色系",
+      "choices": [
+        "配色严格锁定三色无渐变：高饱和朱红（#D8432C）主底占约六成，纯净象牙白（#F5EFE2）反白图形与大字占约三成，墨黑（#1E1C1A）勾勒与辅字占约一成",
+        "配色严格锁定三色无渐变：高饱和赭橘（#E07B2E）主底占约六成，象牙白（#F4ECE0）占约三成，墨黑（#1E1C1A）占约一成",
+        "配色严格锁定三色无渐变：珊瑚红（#D65345）与暖米白（#F0E6D2）双色对撞占九成，局部点缀哑光暗金（#C9A227）不足一成"
+      ]
+    },
+    "cool-ink": {
+      "name": "冷蓝墨绿系",
+      "choices": [
+        "配色严格锁定三色无渐变：高纯度湖蓝（#4E8AAC）主底占约六成，象牙白（#F4EFE6）占约三成，墨黑（#1D2226）占约一成",
+        "配色严格锁定三色无渐变：深孔雀绿（#246061）主底占约六成，象牙白（#F4EFE6）占约三成，一抹朱红（#D8432C）点睛不足一成",
+        "配色严格锁定四色无渐变：浓郁墨绿（#2F5D4A）主底占约六成，奶白（#F2EAD9）占约两成，墨黑（#1D2226）与明黄（#E8B931）合占两成"
+      ]
+    },
+    "paper-ink": {
+      "name": "素纸典藏系",
+      "choices": [
+        "配色严格锁定三色无渐变：温润米白特种纸（#F0E6D2）留白占约六成，朱红（#C8372D）色块与题名占约两成，墨黑（#22201E）占约两成",
+        "配色严格锁定三色无渐变：浅灰素纸（#DDD9D0）留白占约六成，深褐（#4A3528）主字与框线占约三成，哑光金（#B8933A）微边占约一成",
+        "配色严格锁定三色无渐变：纯净棉白纸（#F3EFE6）留白占约七成，墨黑（#1E1E1E）主字占约两成，朱红（#D13B2E）印记占约一成"
+      ]
+    },
+    "multi-spot": {
+      "name": "复古撞色套印系",
+      "choices": [
+        "配色严格锁定四色无渐变：翠绿（#3E9E6E）满底占约五成，明黄（#ECC138）与粉红（#DE7A8B）胶版平涂占约四成，墨黑（#1F1F1D）压字占约一成",
+        "配色严格锁定四色无渐变：藕紫（#8C647E）主底占约五成，淡粉（#E4B4C2）与哑光金（#C8A248）占约三成，墨黑（#1F1F1D）占约两成",
+        "配色严格锁定四色无渐变：蓝绿（#2F7673）主底占约五成，朱红（#D8432C）与明黄（#EAB839）平涂撞色占约四成，象牙白（#F5EFE2）占约一成"
+      ]
+    },
+    "literary-muted": {
+      "name": "低饱和先锋书卷套印系",
+      "choices": [
+        "配色严格锁定四色无渐变：沉稳低饱和灰绿（#6E8276）主底占约六成，赭石（#A66B46）几何切割占约两成，米白（#EFE8DA）与墨黑（#1C1E1D）合占两成",
+        "配色严格锁定三色无渐变：雅致低饱和赭石（#B07A57）主底占约六成，绛红（#8F3438）几何块面占约两成，墨黑（#1C1C1C）建筑体书名占约两成",
+        "配色严格锁定三色无渐变：低饱和冷灰蓝（#8FA1AC）大留白底面占约七成，一抹高饱和朱红（#D8432C）几何条带占约两成，墨黑（#1C1E1D）占约一成"
+      ]
+    }
+  },
+  "typos": {
+    "heavy-block-cut": {
+      "name": "变形重黑 × 切割块数字",
+      "title_choices": [
+        {
+          "desc": "手工绘制的极扁宽平头重黑美术字，字距极紧如建筑砖块",
+          "directions": ["horizontal", "diagonal"]
+        },
+        {
+          "desc": "手工绘制的极窄长平头重黑美术字，笔画等粗如石碑门柱",
+          "directions": ["horizontal", "vertical", "diagonal"]
+        }
+      ],
+      "number_choices": [
+        "斜刀切割镂空几何块状巨型数字",
+        "针孔实心方块造型巨型数字"
+      ]
+    },
+    "serif-handscript": {
+      "name": "修长雕版宋体 × 潇洒连笔数字",
+      "title_choices": [
+        {
+          "desc": "手工修整的窄长挺拔雕版宋体，带锐利衬线角",
+          "directions": ["horizontal", "vertical", "diagonal"]
+        },
+        {
+          "desc": "宽体雕版厚重宋体，带微细反白或烫金描边",
+          "directions": ["horizontal", "diagonal"]
+        }
+      ],
+      "number_choices": [
+        "带潇洒弧度与手写锋芒的超大斜体衬线数字",
+        "笔画穿插包裹的连笔手写斜体大数字"
+      ]
+    },
+    "brush-vs-geo": {
+      "name": "狂放干笔书法 × 冷峻单线数字",
+      "title_choices": [
+        {
+          "desc": "粗犷有飞白的手写毛笔行草大字",
+          "directions": ["horizontal", "vertical", "diagonal"]
+        },
+        {
+          "desc": "金石气厚重手写粗楷魏碑大字",
+          "directions": ["horizontal", "vertical", "diagonal"]
+        }
+      ],
+      "number_choices": [
+        "极简冷静的细单线环状几何大数字",
+        "双线空心硬朗几何大数字"
+      ]
+    },
+    "architectural-book": {
+      "name": "几何建筑书名字体 × 构成数字",
+      "title_choices": [
+        {
+          "desc": "把书名当作几何建筑体块来构造的手工变形重黑美术字，横平竖直紧扣版面分割",
+          "directions": ["horizontal", "vertical", "diagonal"]
+        },
+        {
+          "desc": "几何化重构的先锋手工美术宋体，保留刀刻锐利三角衬线角与强烈结构支撑感",
+          "directions": ["horizontal", "vertical", "diagonal"]
+        }
+      ],
+      "number_choices": [
+        "包豪斯无衬线几何块状超大号年份数字",
+        "与建筑字块形成粗细对比的冷峻等宽几何年份数字"
+      ]
+    }
+  },
+  "accents": {
+    "none": {
+      "name": "纯净无缀",
+      "rule": ""
+    },
+    "double-hairline": {
+      "name": "细双线出版边框",
+      "rule": "外围加一道克制的极细双线边框锚定出版物版芯"
+    },
+    "seal-stamp": {
+      "name": "阴文篆刻方印",
+      "rule": "角落点缀一枚极小的朱红阴文篆刻出版方印"
+    },
+    "pinyin-band": {
+      "name": "全大写拼音饰带",
+      "rule": "边缘或底栏附一行全大写细衬线汉语拼音装饰副标"
+    },
+    "traditional-border": {
+      "name": "二方连续/回纹边带",
+      "rule": "仅沿顶部或左右窄边饰一道秩序感极强的单色几何回纹或缠枝花边，不入侵留白"
+    },
+    "foil-gold": {
+      "name": "局部哑光烫金微边",
+      "rule": "关键书名字或细框线带出局部哑光烫金压印质感"
+    },
+    "damask-paper": {
+      "name": "暗纹织锦美术纸底",
+      "rule": "素底隐约可见同色系细微织锦暗纹肌理"
+    }
+  },
+  "presentations": {
+    "clean-fullbleed": "全新完整平面设计稿直出，版面洁净满幅裁切，无外部桌面翻拍背景，无折痕污渍与装订孔",
+    "white-table-mockup": "纯白素净台面正俯拍全新实体印品展示，书角挺括平整无折痕污渍，带极柔和自然投影"
+  },
+  "constraints": {
+    "style_preferred_palettes": {
+      "pioneer-book-series": ["literary-muted", "paper-ink", "warm-ink", "cool-ink"]
+    },
+    "style_preferred_typos": {
+      "pioneer-book-series": ["architectural-book", "heavy-block-cut", "serif-handscript"]
+    },
+    "flavor_forbidden_mediums": {
+      "ikko-geometric": ["retro-film", "gongbi-watercolor"],
+      "riso-overprint": ["retro-film"]
+    },
+    "flavor_forbidden_palettes": {
+      "riso-overprint": ["multi-spot"]
+    },
+    "skeleton_forbidden_accents": {
+      "window-frame": ["double-hairline"],
+      "grid-minimal": ["traditional-border"]
+    }
+  }
+}
