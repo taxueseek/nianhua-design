@@ -8,6 +8,27 @@
 
 给 AI 生图模型写中文封面提示词时，常见问题是要么泛泛堆砌风格词，要么把内部术语、HEX 色值、坐标参数直接写进正文，导致出图不可控。本 skill 把风格、断代、载体、字区、排布、配色、字形拆成可组合的正交维度，由脚本统一拼装，正文只留纯正、连续、可直接绘形的中文视觉指令。
 
+## 效果图
+
+提示词工作流在即梦（Jimeng）上的出图实测，共 5 张。完整画廊与逐张参数见 [examples.md](examples.md)。
+
+<p align="center">
+  <img src="examples/01-nianhua-suoyang-1985-papercut-fish-4x3.jpg" width="45%" alt="年画缩样 1985 剪纸鱼 横版" />
+  <img src="examples/02-nianhua-suoyang-1985-fish-red-4x3.jpg" width="45%" alt="年画缩样 1985 红黑鱼 横版" />
+</p>
+<p align="center"><sub>1 · 年画缩样 × 1980s × 剪纸线刻 × 4:3 ｜ 2 · 年画缩样 × 1980s × 专色高对比 × 4:3</sub></p>
+
+<p align="center">
+  <img src="examples/03-nianhua-suoyang-2026-horse-3x4.jpg" width="45%" alt="年画缩样 2026 奔马 竖版" />
+  <img src="examples/04-nianhua-suoyang-1985-sample-grid.jpg" width="45%" alt="年画缩样 1985 样张陈列" />
+</p>
+<p align="center"><sub>3 · 年画缩样 × 2026 × 大留白 × 3:4 ｜ 4 · 年画缩样 × 1980s × 几何构成 × 32 开</sub></p>
+
+<p align="center">
+  <img src="examples/05-nianhua-suoyang-2026-lantern-red.jpg" width="32%" alt="年画缩样 2026 中国红灯笼" />
+</p>
+<p align="center"><sub>5 · 年画缩样 × 2026 × 中国红 × 32 开</sub></p>
+
 ## 两大细分风格
 
 - **`nianhua-suoyang`（年画缩样 · 传统至现代集大成）**：1950s–90s 美术出版社内部订货缩样与画集封面体系。工笔开光、民间剪纸锯齿线刻、套色木刻、篆刻方印与毛笔题签，和田字格色块切割、大留白、摄影拼贴与手绘非标变形美术字并存。
@@ -49,7 +70,10 @@ python3 scripts/compose_prompt.py --self-test
 - `assets/examples.md`：双细分风格、三变体、历史功能与无字底图范例。
 - `references/design-principles.md`：第一性原理、年画三重历史功能、断代规范、MECE 矩阵与看图复诊协议。
 - `scripts/compose_prompt.py`：零依赖提示词组合器（含 `--self-test` 回归校验）。
+- `examples/`：出图实测效果图（版权独立，见下）。
+- `examples.md`：效果图画廊与逐张参数说明。
 
 ## 许可
 
-MIT，见 [LICENSE](LICENSE)。
+- **Skill（代码、文本、词库）**：MIT，见 [LICENSE](LICENSE)。
+- **效果图（`examples/`）**：版权独立于 Skill，禁止商业使用，见 [LICENSE-IMAGES.md](LICENSE-IMAGES.md)。
